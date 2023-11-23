@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BArchive</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script type="module" src="assets/js/script.mjs"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header-logo">
+          <h1 class="logo">B<span>Archive.</span></h1>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="jumbotron">
+          <div class="wrap">
+            <div class="jumbotron-description">
+              <h2 class="title">Book Archive</h2>
+              <p class="text">
+                Mempermudah menemukan bacaan terakhir dan archive bukumu.
+              </p>
+            </div>
+            <div class="jumbotron-img">
+              <img src="assets/images/heropage.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <article class="main-content">
+        <header class="content-header">
+          <form class="header-form" id="formSearch">
+            <input
+              class="input-search"
+              type="text"
+              id="search"
+              name="search"
+              placeholder="Search..."
+              autocomplete="off"
+            />
+            <button class="input-btn" type="submit">
+              <i class="fa-solid fa-search"></i>
+            </button>
+          </form>
+          <nav class="header-nav">
+            <button class="nav-add" id="addBook">
+              Tambah Buku <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="nav-search hidden" id="nav-search">
+              <span>Search:</span>
+              <div class="wrap">
+                <span id="search-value"></span>
+                <i class="fa-solid fa-xmark" id="search-delete"></i>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <article class="content">
+          <h2 class="title">Recent Books</h2>
+          <div class="books" id="recent-book"></div>
+        </article>
+
+        <article class="content">
+          <h2 class="title">Reading Books</h2>
+          <div class="books" id="notcompleted-book"></div>
+        </article>
+
+        <article class="content">
+          <h2 class="title">Completed Read Books</h2>
+          <div class="books" id="completed-book"></div>
+        </article>
+      </article>
+
+      <div id="myModal" class="modal hidden">
+        <div class="modal-content">
+          <div class="content-header">
+            <h2 class="header-title" id="modal-title">Add Book</h2>
+          </div>
+          <div class="content-body">
+            <form class="modal-form" id="modal-form">
+              <fieldset>
+                <label for="id">
+                  Id Book:
+                  <input type="text" id="id" name="id" disabled="true" />
+                  <input type="text" id="id2" name="id2" hidden />
+                </label>
+                <label for="title">
+                  Title Book:
+                  <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    placeholder="Title..."
+                    required
+                  />
+                </label>
+                <label for="year">
+                  Year Book:
+                  <input
+                    type="number"
+                    id="year"
+                    name="year"
+                    placeholder="Year..."
+                  />
+                </label>
+                <label for="author">
+                  Author Book:
+                  <input
+                    type="text"
+                    id="author"
+                    name="author"
+                    placeholder="Author..."
+                  />
+                </label>
+              </fieldset>
+              <fieldset>
+                <button type="submit">Save</button>
+              </fieldset>
+            </form>
+          </div>
+          <button class="close" id="close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="modal hidden" id="modal-delete">
+        <div class="container">
+          <div class="modal-content">
+            <div class="content-header">
+              <h2 class="header-title">
+                Delete <span id="title-delete-modal"></span>
+              </h2>
+            </div>
+            <div class="content-body">
+              <p>
+                Apakah anda yakin ingin menghapus
+                <span id="text-delete-modal"></span>?
+              </p>
+              <div class="action">
+                <button id="ya-delete" class="btn primary">
+                  <i class="fa-solid fa-check"></i> Ya
+                </button>
+                <button id="tidak-delete" class="btn danger">
+                  <i class="fa-solid fa-xmark"></i> Tidak
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="toast-container" id="toast-container"></div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>Copyrigth &copy; Mayutama.dev 2023, Allright reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
